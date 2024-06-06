@@ -28,6 +28,8 @@ public class Fade : MonoBehaviour
             image.color = new Color(0, 0, 0, fadeCount);
         }
         GetComponent<TutorialMsg>().text.text = "";
+        if (GetComponent<TutorialMsg>().textNum == 5)
+            SceneManager.LoadScene("Main");
         StartCoroutine(StartFadeInCoroutine());
     }
 
@@ -46,6 +48,8 @@ public class Fade : MonoBehaviour
 
         yield return new WaitForSeconds(0.8f);
 
+        if(GetComponent<TutorialMsg>().textNum == 0)
+            GetComponent<TutorialMsg>().cal.SetActive(true);
         tm.Change(GetComponent<TutorialMsg>().textNum);
     }
 }
