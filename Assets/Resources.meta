@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Images/UI/Situation.meta
+guid: b53f9fa02ba354477abbf8c1ead0460b
+========
 guid: 24492a0a5f5f749a7991a8547174a028
+>>>>>>>> main:Assets/Resources.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
