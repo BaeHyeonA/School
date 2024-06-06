@@ -13,6 +13,9 @@ public class BuyItem : MonoBehaviour
     // TextMeshPro 오브젝트 참조
     public TextMeshProUGUI totalPointText;
 
+    // 게임 매니저
+    public GameManager gameManager;
+
     // 포인트 변수
     public int totalPoint;
 
@@ -47,7 +50,6 @@ public class BuyItem : MonoBehaviour
     public Button item11;
     public Button item12;
 
-
     // Warning 오브젝트 참조
     public GameObject warningObject;
 
@@ -70,8 +72,13 @@ public class BuyItem : MonoBehaviour
 
     void Start()
     {
+        // GameManager 인스턴스에 대한 참조 가져오기
+        gameManager = GameManager.Instance;
+
+        // 아이템 박스 비활성화
         itemBox.SetActive(false);
         warningObject.SetActive(false);
+
 
         // 아이템 정보 설정
         //캐릭터
@@ -90,6 +97,7 @@ public class BuyItem : MonoBehaviour
         itemInfoList.Add(new ItemInfo { itemName = "액자", requiredPoint = 3, itemSprite = pictureSprite });
         itemInfoList.Add(new ItemInfo { itemName = "칠판", requiredPoint = 5, itemSprite = boardSprite });
 
+        // 시작 시점에서 totalPointText를 업데이트합니다.
         UpdateText();
 
         // 버튼 이벤트 설정
@@ -109,7 +117,6 @@ public class BuyItem : MonoBehaviour
         btnPicture.onClick.AddListener(() => Buy(itemInfoList[10]));
         btnBoard.onClick.AddListener(() => Buy(itemInfoList[11]));
 
-
         // Btn_Item 버튼 이벤트 설정
         Btn_Item.onClick.AddListener(ActivateItemBox);
         Btn_Close.onClick.AddListener(DeActivateItemBox);
@@ -127,12 +134,18 @@ public class BuyItem : MonoBehaviour
 
     void Buy(ItemInfo itemInfo)
     {
-        if (totalPoint >= itemInfo.requiredPoint)
+        int remainingPoint = gameManager.sticker - itemInfo.requiredPoint;
+
+        if (remainingPoint >= 0)
         {
-            totalPoint -= itemInfo.requiredPoint;
+            print("넘음");
+            totalPoint = remainingPoint;
             UpdateText();
 
-            // 클릭된 아이템을 리스트에 추가
+            // 스티커 감소
+            gameManager.sticker -= itemInfo.requiredPoint;
+            UpdateTotalPointText(gameManager.sticker);
+
             clickedItems.Add(itemInfo);
             UpdateItemImages();
         }
@@ -141,6 +154,12 @@ public class BuyItem : MonoBehaviour
             StartCoroutine(ShowWarningMessage());
         }
     }
+
+    void UpdateTotalPointText(int totalPoint)
+    {
+        totalPointText.text = totalPoint.ToString();
+    }
+
 
     void UpdateItemImages()
     {
