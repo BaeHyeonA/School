@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class TutorialMsg: MonoBehaviour
 {
@@ -18,21 +17,21 @@ public class TutorialMsg: MonoBehaviour
     private float interval;
     private bool isEffect;
 
-    //텍스트 이펙트없이 다 보이게 해주는 기능을 위한 변수
-    private bool msgCheck;
-    private int _dialogNum2;
-
     private Fade fadeScript;
     public TutorialManager tm;
     public int textNum;
-    
+
+    public GameObject cal;
+    public GameObject sticker;
+    public GameObject quest;
+    public GameObject quiz;
+    public GameObject store;
+
 
     void Start()
     {
         fadeScript = GetComponent<Fade>();
         _dialogNum = 0;
-        _dialogNum2 = 0;
-        msgCheck = true;
         NextDialog();
         interval = 1.0f / CharPerSeconds;
     }
@@ -40,8 +39,6 @@ public class TutorialMsg: MonoBehaviour
     void OnEnable()
     {
         _dialogNum = 0;
-        _dialogNum2 = 0;
-        msgCheck = true;
         NextDialog();
         interval = 1.0f / CharPerSeconds;
     }
@@ -55,7 +52,6 @@ public class TutorialMsg: MonoBehaviour
             CancelInvoke();
             EffectEnd();
             text.text = targetmsg;
-            msgCheck = true;
         }
         else
             NextDialog();
@@ -68,14 +64,41 @@ public class TutorialMsg: MonoBehaviour
         {
             Setmsg(_dialog[_dialogNum]);
             _dialogNum++;
-            msgCheck = false;
+
         }
         else
         {
-            if (textNum == 0 || textNum == 5)
+            if (textNum == 0)
                 fadeScript.LoadFade();
+            else if(textNum == 5)
+            {
+                store.SetActive(false);
+                fadeScript.LoadFade();
+            }
             else
+            {
+                 if (textNum == 1)
+                {
+                    cal.SetActive(false);
+                    sticker.SetActive(true);
+                }
+                else if (textNum == 2)
+                {
+                    sticker.SetActive(false);
+                    quest.SetActive(true);
+                }
+                else if (textNum == 3)
+                {
+                    quest.SetActive(false);
+                    quiz.SetActive(true);
+                }
+                else if (textNum == 4)
+                {
+                    quiz.SetActive(false);
+                    store.SetActive(true);
+                }
                 tm.Change(textNum);
+            }
         }
     }
 
