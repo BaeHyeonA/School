@@ -49,37 +49,33 @@ public class TutorialMsg: MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
+    {
+        if (isEffect)
+        {
+            CancelInvoke();
+            EffectEnd();
+            text.text = targetmsg;
+            msgCheck = true;
+        }
+        else
             NextDialog();
+    }
     }
 
     public void NextDialog()
     {
-        if (!msgCheck)
+        if (_dialogNum < _dialog.Count)
         {
-            Setmsg2(_dialog[_dialogNum2]);
-            msgCheck = true;
-            _dialogNum2++;
+            Setmsg(_dialog[_dialogNum]);
+            _dialogNum++;
+            msgCheck = false;
         }
         else
         {
-            if (_dialogNum < _dialog.Count)
-            {
-                Setmsg(_dialog[_dialogNum]);
-                _dialogNum++;
-                msgCheck = false;
-            }
+            if (textNum == 0 || textNum == 5)
+                fadeScript.LoadFade();
             else
-            {
-                if (textNum == 0 || textNum == 5)
-                    fadeScript.LoadFade();
-                else
-                {
-                    tm.Change(textNum);
-                }
-
-               // if (SceneManager.GetActiveScene().buildIndex == 1)
-               //     SceneManager.LoadScene("Main");
-            }
+                tm.Change(textNum);
         }
     }
 
@@ -92,16 +88,6 @@ public class TutorialMsg: MonoBehaviour
         }
         targetmsg = msg;
         EffectStart();
-    }
-
-    void Setmsg2(string msg)
-    {
-        if (isEffect)
-        {
-            CancelInvoke();
-            EffectEnd();
-        }
-        text.text = msg;
     }
 
     void EffectStart()
