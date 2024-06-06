@@ -1,0 +1,40 @@
+{
+    "questList": [
+      {
+        "id": 1,
+        "first": "친구에게 먼저 인사하고 말 걸기",
+        "first_Detail": "자기소개 연습하기, 간식 나눠주기",
+        "second": "자신의 감정 표현",
+        "second_Detail": "친구와 하교하면서 학교에서 재미있었던 일 이야기하기",
+        "third": "협력하기",
+        "third_Detail": "도움이 필요한 친구에게 먼저 다가가 도움 주기"
+      },
+      {
+        "id": 5,
+        "first": "질문하기",
+        "first_Detail": "관심사 물어보기",
+        "second": "감정조절",
+        "second_Detail": "나만의 행복하고 화나는 일 떠올려보기",
+        "third": "배려하기",
+        "third_Detail": "같이 들어가는 친구를 위해 교실 문 열어주기"
+      },
+      {
+        "id": 9,
+        "first": "칭찬하기",
+        "first_Detail": "친구의 장점을 찾아 칭찬하기",
+        "second": "공감하기",
+        "second_Detail": "친구의 고민 물어보고 들어주기",
+        "third": "사과하기",
+        "third_Detail": "친구에게 미안한 일에 진심으로 사과해보기"
+      },
+      {
+        "id": 14,
+        "first": "제안하기",
+        "first_Detail": "방과후에 같이 놀자고 제안하기",
+        "second": "위로하기",
+        "second_Detail": "표정이 좋지 않은 친구에게 다가가 위로의 말 건네기",
+        "third": "중재하기",
+        "third_Detail": "친구들의 의견이 다를 때, 적절한 해결책 찾기"
+      }
+    ]
+}
