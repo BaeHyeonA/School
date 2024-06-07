@@ -31,4 +31,9 @@ public class GameManager : MonoBehaviour
     {
         sticker++;
     }
+
+    public void stickerDown()
+    {
+        sticker--;
+    }
 }
