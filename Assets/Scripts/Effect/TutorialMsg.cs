@@ -17,7 +17,7 @@ public class TutorialMsg: MonoBehaviour
     private float interval;
     private bool isEffect;
 
-    private Fade fadeScript;
+    private TutorialFade fadeScript;
     public TutorialManager tm;
     public int textNum;
 
@@ -30,7 +30,7 @@ public class TutorialMsg: MonoBehaviour
 
     void Start()
     {
-        fadeScript = GetComponent<Fade>();
+        fadeScript = GetComponent<TutorialFade>();
         _dialogNum = 0;
         NextDialog();
         interval = 1.0f / CharPerSeconds;

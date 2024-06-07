@@ -1755,8 +1755,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 142682525}
-  - component: {fileID: 142682524}
-  - component: {fileID: 142682523}
   - component: {fileID: 142682526}
   m_Layer: 0
   m_Name: Manager
@@ -1765,48 +1763,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &142682523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142682522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35c49be403a1a43bc843c59a12daa4c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  day: {fileID: 1583347356}
-  faces:
-  - {fileID: 1582420729}
-  - {fileID: 616561986}
-  - {fileID: 479291313}
-  - {fileID: 327480165}
-  texts:
-  - {fileID: 218128487}
-  - {fileID: 2044784778}
-  - {fileID: 1376368721}
-  firstQuest: {fileID: 2077998582}
-  firstDetail: {fileID: 1140336474}
-  secondQuest: {fileID: 852580700}
-  secondDetail: {fileID: 1651873903}
-  thirdQuest: {fileID: 633252178}
-  thirdDetail: {fileID: 608696610}
---- !u!114 &142682524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142682522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 695de7f8ea8074a258a192e08d8f22dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sticker: 0
-  tmp: {fileID: 1800021078}
 --- !u!4 &142682525
 Transform:
   m_ObjectHideFlags: 0
@@ -3244,7 +3200,7 @@ RectTransform:
   m_GameObject: {fileID: 265290388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3374, y: 1, z: 1}
+  m_LocalScale: {x: 1.372841, y: 1.0265, z: 1.0265}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1724431960}
@@ -7270,7 +7226,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 142682524}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: stickerUp
         m_Mode: 1
@@ -7282,7 +7238,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 142682523}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CalenderManager, Assembly-CSharp
         m_MethodName: SuccessQuest
         m_Mode: 1
@@ -7294,7 +7250,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 142682523}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CalenderManager, Assembly-CSharp
         m_MethodName: CheckQuest
         m_Mode: 3
@@ -14380,7 +14336,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 142682524}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: stickerUp
         m_Mode: 1
@@ -14392,7 +14348,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 142682523}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CalenderManager, Assembly-CSharp
         m_MethodName: SuccessQuest
         m_Mode: 1
@@ -14404,7 +14360,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 142682523}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CalenderManager, Assembly-CSharp
         m_MethodName: CheckQuest
         m_Mode: 3
@@ -18798,7 +18754,7 @@ RectTransform:
   m_GameObject: {fileID: 1327020671}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1326, y: 1.1326, z: 1.1326}
+  m_LocalScale: {x: 1.6130489, y: 1.6130489, z: 1.6130489}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1724431960}
@@ -29482,7 +29438,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 142682524}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: stickerUp
         m_Mode: 1
@@ -29494,7 +29450,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 142682523}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CalenderManager, Assembly-CSharp
         m_MethodName: CheckQuest
         m_Mode: 3
@@ -29506,7 +29462,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 142682523}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CalenderManager, Assembly-CSharp
         m_MethodName: SuccessQuest
         m_Mode: 1
