@@ -2,57 +2,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro; // TextMeshPro ¶óÀÌºê·¯¸® Ãß°¡
+using TMPro; // TextMeshPro ï¿½ï¿½ï¿½Ìºê·¯ï¿½ï¿½ ï¿½ß°ï¿½
 
 public class Btn_Back : MonoBehaviour
 {
-    // GameManager¿¡ ´ëÇÑ ÂüÁ¶
-    public GameManager gameManager;
     public Button Btn_Day1Back;
     public Button Btn_Day2Back;
     public GameObject Day1;
     public GameObject Day2;
     public GameObject Day2_Unlock;
 
-    // TextMeshPro ¿ÀºêÁ§Æ® ÂüÁ¶
+    // TextMeshPro ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
     public TextMeshProUGUI totalPointText;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        // GameManager ÀÎ½ºÅÏ½º¿¡ ´ëÇÑ ÂüÁ¶ °¡Á®¿À±â
-        gameManager = GameManager.Instance;
-
-        // Day1Back ¹öÆ°¿¡ ¸®½º³Ê Ãß°¡
+        // Day1Back ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
         Btn_Day1Back.onClick.AddListener(OnDay1BackClicked);
-        // Day2Back ¹öÆ°¿¡ ¸®½º³Ê Ãß°¡
+        // Day2Back ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
         Btn_Day2Back.onClick.AddListener(OnDay2BackClicked);
     }
 
     void OnDay1BackClicked()
     {
-        // Day1 ¿ÀºêÁ§Æ®¸¦ ºñÈ°¼ºÈ­
+        // Day1 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
         Day1.SetActive(false);
-        // Day2_Unlock ¿ÀºêÁ§Æ®¸¦ È°¼ºÈ­
+        // Day2_Unlock ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ È°ï¿½ï¿½È­
         Day2_Unlock.SetActive(true);
 
-        // GameManagerÀÇ sticker¸¦ Áõ°¡½ÃÅ°°í ¾÷µ¥ÀÌÆ®µÈ °ªÀ» ÅØ½ºÆ®·Î Ç¥½Ã
-        gameManager.stickerUp();
-        UpdateTotalPointText(gameManager.sticker);
+        // GameManagerï¿½ï¿½ stickerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø½ï¿½Æ®ï¿½ï¿½ Ç¥ï¿½ï¿½
+        GameManager.Instance.stickerUp();
+        UpdateTotalPointText(GameManager.Instance.sticker);
     }
 
     void OnDay2BackClicked()
     {
-        // Day2 ¿ÀºêÁ§Æ®¸¦ ºñÈ°¼ºÈ­
+        // Day2 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
         Day2.SetActive(false);
 
-        // GameManagerÀÇ sticker¸¦ Áõ°¡½ÃÅ°°í ¾÷µ¥ÀÌÆ®µÈ °ªÀ» ÅØ½ºÆ®·Î Ç¥½Ã
-        gameManager.stickerUp();
-        UpdateTotalPointText(gameManager.sticker);
+        // GameManagerï¿½ï¿½ stickerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø½ï¿½Æ®ï¿½ï¿½ Ç¥ï¿½ï¿½
+        GameManager.Instance.stickerUp();
+        UpdateTotalPointText(GameManager.Instance.sticker);
     }
 
-    // totalPointText ¾÷µ¥ÀÌÆ® ¸Þ¼­µå
+    // totalPointText ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þ¼ï¿½ï¿½ï¿½
     void UpdateTotalPointText(int totalPoint)
     {
         totalPointText.text = totalPoint.ToString();

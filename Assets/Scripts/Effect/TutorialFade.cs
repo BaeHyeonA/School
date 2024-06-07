@@ -29,7 +29,7 @@ public class TutorialFade : MonoBehaviour
         }
         GetComponent<TutorialMsg>().text.text = "";
         if (GetComponent<TutorialMsg>().textNum == 5)
-            SceneManager.LoadScene("Main");
+            SceneManager.LoadScene("Main_1");
         StartCoroutine(StartFadeInCoroutine());
     }
 
