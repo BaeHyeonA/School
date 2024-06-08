@@ -25,7 +25,6 @@ public class CalenderManager : MonoBehaviour
             face.GetComponent<RectTransform>().anchoredPosition = day.GetComponent<RectTransform>().anchoredPosition;
         faces[questNum].SetActive(true);
         LoadQuestData();
-        OnQuestButtonClick(int.Parse(day.name));
     }  
 
     void LoadQuestData()
@@ -34,7 +33,7 @@ public class CalenderManager : MonoBehaviour
         questData = JsonUtility.FromJson<QuestList>(jsonData.text);
     }   
 
-    void OnQuestButtonClick(int id)
+    public void OnQuestButtonClick(int id)
     {
         Quest quest = FindQuestById(id);
         if (quest != null)

@@ -2,25 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro; // TextMeshPro ¶óÀÌºê·¯¸® Ãß°¡
+using TMPro; // TextMeshPro ï¿½ï¿½ï¿½Ìºê·¯ï¿½ï¿½ ï¿½ß°ï¿½
 
 public class BuyItem : MonoBehaviour
 {
-    // ¾ÆÀÌÅÛ ¹öÆ°
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
     public Button Btn_Item;
     public Button Btn_Close;
 
-    // TextMeshPro ¿ÀºêÁ§Æ® ÂüÁ¶
+    // TextMeshPro ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
     public TextMeshProUGUI totalPointText;
 
-    // °ÔÀÓ ¸Å´ÏÀú
-    public GameManager gameManager;
-
-    // Æ÷ÀÎÆ® º¯¼ö
+    // ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
     public int totalPoint;
 
-    // ¹öÆ° ¿ÀºêÁ§Æ® ÂüÁ¶
-    // Ä³¸¯ÅÍ
+    // ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+    // Ä³ï¿½ï¿½ï¿½ï¿½
     public Button btnHat;
     public Button btnRibbon;
     public Button btnCandy;
@@ -28,7 +25,7 @@ public class BuyItem : MonoBehaviour
     public Button btnGlass;
     public Button btnHair;
 
-    //±³½Ç
+    //ï¿½ï¿½ï¿½ï¿½
     public Button btnPlant;
     public Button btnFish;
     public Button btnBook;
@@ -36,7 +33,7 @@ public class BuyItem : MonoBehaviour
     public Button btnPicture;
     public Button btnBoard;
 
-    // ÀÌ¹ÌÁö º¯°æ ´ë»ó ¹öÆ°
+    // ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
     public Button item1;
     public Button item2;
     public Button item3;
@@ -50,58 +47,55 @@ public class BuyItem : MonoBehaviour
     public Button item11;
     public Button item12;
 
-    // Warning ¿ÀºêÁ§Æ® ÂüÁ¶
+    // Warning ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
     public GameObject warningObject;
 
-    // ¾ÆÀÌÅÛ Á¤º¸ (¾ÆÀÌÅÛ ÀÌ¸§, ÇÊ¿ä Æ÷ÀÎÆ®)
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½, ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®)
     public struct ItemInfo
     {
         public string itemName;
         public int requiredPoint;
-        public Sprite itemSprite; // ÀÌ¹ÌÁö Ãß°¡
+        public Sprite itemSprite; // ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
     }
 
-    // ¾ÆÀÌÅÛ Á¤º¸ ¸ñ·Ï
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
     public List<ItemInfo> itemInfoList = new List<ItemInfo>();
 
-    // ItemBox °ÔÀÓ ¿ÀºêÁ§Æ® ÂüÁ¶
+    // ItemBox ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
     public GameObject itemBox;
 
-    // Å¬¸¯µÈ ¹öÆ° ¼ø¼­ ±â·Ï ¸®½ºÆ®
+    // Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
     private List<ItemInfo> clickedItems = new List<ItemInfo>();
 
     void Start()
     {
-        // GameManager ÀÎ½ºÅÏ½º¿¡ ´ëÇÑ ÂüÁ¶ °¡Á®¿À±â
-        gameManager = GameManager.Instance;
-
-        // ¾ÆÀÌÅÛ ¹Ú½º ºñÈ°¼ºÈ­
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
         itemBox.SetActive(false);
         warningObject.SetActive(false);
 
 
-        // ¾ÆÀÌÅÛ Á¤º¸ ¼³Á¤
-        //Ä³¸¯ÅÍ
-        itemInfoList.Add(new ItemInfo { itemName = "¸ðÀÚ", requiredPoint = 3, itemSprite = hatSprite });
-        itemInfoList.Add(new ItemInfo { itemName = "¸®º»", requiredPoint = 3, itemSprite = ribbonSprite });
-        itemInfoList.Add(new ItemInfo { itemName = "»çÅÁ", requiredPoint = 1, itemSprite = candySprite });
-        itemInfoList.Add(new ItemInfo { itemName = "ÃÊÄÝ¸´", requiredPoint = 2, itemSprite = chocolateSprite });
-        itemInfoList.Add(new ItemInfo { itemName = "¾È°æ", requiredPoint = 3, itemSprite = glassSprite });
-        itemInfoList.Add(new ItemInfo { itemName = "¸Ó¸®¶ì", requiredPoint = 3, itemSprite = hairSprite });
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        //Ä³ï¿½ï¿½ï¿½ï¿½
+        itemInfoList.Add(new ItemInfo { itemName = "ï¿½ï¿½ï¿½ï¿½", requiredPoint = 3, itemSprite = hatSprite });
+        itemInfoList.Add(new ItemInfo { itemName = "ï¿½ï¿½ï¿½ï¿½", requiredPoint = 3, itemSprite = ribbonSprite });
+        itemInfoList.Add(new ItemInfo { itemName = "ï¿½ï¿½ï¿½ï¿½", requiredPoint = 1, itemSprite = candySprite });
+        itemInfoList.Add(new ItemInfo { itemName = "ï¿½ï¿½ï¿½Ý¸ï¿½", requiredPoint = 2, itemSprite = chocolateSprite });
+        itemInfoList.Add(new ItemInfo { itemName = "ï¿½È°ï¿½", requiredPoint = 3, itemSprite = glassSprite });
+        itemInfoList.Add(new ItemInfo { itemName = "ï¿½Ó¸ï¿½ï¿½ï¿½", requiredPoint = 3, itemSprite = hairSprite });
 
-        //±³½Ç
-        itemInfoList.Add(new ItemInfo { itemName = "È­ºÐ", requiredPoint = 3, itemSprite = plantSprite });
-        itemInfoList.Add(new ItemInfo { itemName = "¹°°í±â", requiredPoint = 3, itemSprite = fishSprite });
-        itemInfoList.Add(new ItemInfo { itemName = "Ã¥Àå", requiredPoint = 5, itemSprite = bookSprite });
-        itemInfoList.Add(new ItemInfo { itemName = "½Ã°è", requiredPoint = 2, itemSprite = clockSprite });
-        itemInfoList.Add(new ItemInfo { itemName = "¾×ÀÚ", requiredPoint = 3, itemSprite = pictureSprite });
-        itemInfoList.Add(new ItemInfo { itemName = "Ä¥ÆÇ", requiredPoint = 5, itemSprite = boardSprite });
+        //ï¿½ï¿½ï¿½ï¿½
+        itemInfoList.Add(new ItemInfo { itemName = "È­ï¿½ï¿½", requiredPoint = 3, itemSprite = plantSprite });
+        itemInfoList.Add(new ItemInfo { itemName = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", requiredPoint = 3, itemSprite = fishSprite });
+        itemInfoList.Add(new ItemInfo { itemName = "Ã¥ï¿½ï¿½", requiredPoint = 5, itemSprite = bookSprite });
+        itemInfoList.Add(new ItemInfo { itemName = "ï¿½Ã°ï¿½", requiredPoint = 2, itemSprite = clockSprite });
+        itemInfoList.Add(new ItemInfo { itemName = "ï¿½ï¿½ï¿½ï¿½", requiredPoint = 3, itemSprite = pictureSprite });
+        itemInfoList.Add(new ItemInfo { itemName = "Ä¥ï¿½ï¿½", requiredPoint = 5, itemSprite = boardSprite });
 
-        // ½ÃÀÛ ½ÃÁ¡¿¡¼­ totalPointText¸¦ ¾÷µ¥ÀÌÆ®ÇÕ´Ï´Ù.
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ totalPointTextï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½Õ´Ï´ï¿½.
         UpdateText();
 
-        // ¹öÆ° ÀÌº¥Æ® ¼³Á¤
-        // Ä³¸¯ÅÍ
+        // ï¿½ï¿½Æ° ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+        // Ä³ï¿½ï¿½ï¿½ï¿½
         btnHat.onClick.AddListener(() => Buy(itemInfoList[0]));
         btnRibbon.onClick.AddListener(() => Buy(itemInfoList[1]));
         btnCandy.onClick.AddListener(() => Buy(itemInfoList[2]));
@@ -109,7 +103,7 @@ public class BuyItem : MonoBehaviour
         btnGlass.onClick.AddListener(() => Buy(itemInfoList[4]));
         btnHair.onClick.AddListener(() => Buy(itemInfoList[5]));
 
-        //±³½Ç
+        //ï¿½ï¿½ï¿½ï¿½
         btnPlant.onClick.AddListener(() => Buy(itemInfoList[6]));
         btnFish.onClick.AddListener(() => Buy(itemInfoList[7]));
         btnBook.onClick.AddListener(() => Buy(itemInfoList[8]));
@@ -117,7 +111,7 @@ public class BuyItem : MonoBehaviour
         btnPicture.onClick.AddListener(() => Buy(itemInfoList[10]));
         btnBoard.onClick.AddListener(() => Buy(itemInfoList[11]));
 
-        // Btn_Item ¹öÆ° ÀÌº¥Æ® ¼³Á¤
+        // Btn_Item ï¿½ï¿½Æ° ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½
         Btn_Item.onClick.AddListener(ActivateItemBox);
         Btn_Close.onClick.AddListener(DeActivateItemBox);
     }
@@ -134,17 +128,17 @@ public class BuyItem : MonoBehaviour
 
     void Buy(ItemInfo itemInfo)
     {
-        int remainingPoint = gameManager.sticker - itemInfo.requiredPoint;
+        int remainingPoint = GameManager.Instance.sticker - itemInfo.requiredPoint;
 
         if (remainingPoint >= 0)
         {
-            print("³ÑÀ½");
+            print("ï¿½ï¿½ï¿½ï¿½");
             totalPoint = remainingPoint;
             UpdateText();
 
-            // ½ºÆ¼Ä¿ °¨¼Ò
-            gameManager.sticker -= itemInfo.requiredPoint;
-            UpdateTotalPointText(gameManager.sticker);
+            // ï¿½ï¿½Æ¼Ä¿ ï¿½ï¿½ï¿½ï¿½
+            GameManager.Instance.sticker -= itemInfo.requiredPoint;
+            UpdateTotalPointText(GameManager.Instance.sticker);
 
             clickedItems.Add(itemInfo);
             UpdateItemImages();
@@ -163,7 +157,7 @@ public class BuyItem : MonoBehaviour
 
     void UpdateItemImages()
     {
-        // ¹öÆ° ¼ø¼­¿¡ µû¶ó ÀÌ¹ÌÁö º¯°æ
+        // ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (clickedItems.Count > 0) item1.image.sprite = clickedItems[0].itemSprite;
         if (clickedItems.Count > 1) item2.image.sprite = clickedItems[1].itemSprite;
         if (clickedItems.Count > 2) item3.image.sprite = clickedItems[2].itemSprite;
@@ -180,9 +174,9 @@ public class BuyItem : MonoBehaviour
 
     IEnumerator ShowWarningMessage()
     {
-        warningObject.SetActive(true); // Warning ¿ÀºêÁ§Æ® È°¼ºÈ­
-        yield return new WaitForSeconds(2.0f); // 2ÃÊ ´ë±â
-        warningObject.SetActive(false); // Warning ¿ÀºêÁ§Æ® ºñÈ°¼ºÈ­
+        warningObject.SetActive(true); // Warning ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® È°ï¿½ï¿½È­
+        yield return new WaitForSeconds(2.0f); // 2ï¿½ï¿½ ï¿½ï¿½ï¿½
+        warningObject.SetActive(false); // Warning ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È°ï¿½ï¿½È­
     }
 
     void UpdateText()
@@ -190,7 +184,7 @@ public class BuyItem : MonoBehaviour
         totalPointText.text = totalPoint.ToString();
     }
 
-    // ÀÎ½ºÆåÅÍ¿¡¼­ ÇÒ´çÇÒ Sprite ÇÊµå
+    // ï¿½Î½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½ï¿½ Sprite ï¿½Êµï¿½
     public Sprite hatSprite;
     public Sprite ribbonSprite;
     public Sprite plantSprite;

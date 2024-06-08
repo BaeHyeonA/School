@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Fade : MonoBehaviour
+public class TutorialFade : MonoBehaviour
 {
     public GameObject fadePanel;
     public TutorialManager tm;
@@ -29,7 +29,7 @@ public class Fade : MonoBehaviour
         }
         GetComponent<TutorialMsg>().text.text = "";
         if (GetComponent<TutorialMsg>().textNum == 5)
-            SceneManager.LoadScene("Main");
+            SceneManager.LoadScene("Main_1");
         StartCoroutine(StartFadeInCoroutine());
     }
 
