@@ -56,6 +56,7 @@ public class BuyItem : MonoBehaviour
         public string itemName;
         public int requiredPoint;
         public Sprite itemSprite; // �̹��� �߰�
+        public Button itemButton;
     }
 
     // ������ ���� ���
@@ -74,22 +75,21 @@ public class BuyItem : MonoBehaviour
         warningObject.SetActive(false);
 
 
-        // ������ ���� ����
-        //ĳ����
-        itemInfoList.Add(new ItemInfo { itemName = "����", requiredPoint = 3, itemSprite = hatSprite });
-        itemInfoList.Add(new ItemInfo { itemName = "����", requiredPoint = 3, itemSprite = ribbonSprite });
-        itemInfoList.Add(new ItemInfo { itemName = "����", requiredPoint = 1, itemSprite = candySprite });
-        itemInfoList.Add(new ItemInfo { itemName = "���ݸ�", requiredPoint = 2, itemSprite = chocolateSprite });
-        itemInfoList.Add(new ItemInfo { itemName = "�Ȱ�", requiredPoint = 3, itemSprite = glassSprite });
-        itemInfoList.Add(new ItemInfo { itemName = "�Ӹ���", requiredPoint = 3, itemSprite = hairSprite });
+    //아이템 정보 초기화 (ItemInfo에 버튼 참조 추가)
+    itemInfoList.Add(new ItemInfo { itemName = "모자", requiredPoint = 3, itemSprite = hatSprite, itemButton = btnHat });
+    itemInfoList.Add(new ItemInfo { itemName = "리본", requiredPoint = 3, itemSprite = ribbonSprite, itemButton = btnRibbon });
+    itemInfoList.Add(new ItemInfo { itemName = "사탕", requiredPoint = 1, itemSprite = candySprite, itemButton = btnCandy });
+    itemInfoList.Add(new ItemInfo { itemName = "초콜릿", requiredPoint = 2, itemSprite = chocolateSprite, itemButton = btnChocolate });
+    itemInfoList.Add(new ItemInfo { itemName = "안경", requiredPoint = 3, itemSprite = glassSprite, itemButton = btnGlass });
+    itemInfoList.Add(new ItemInfo { itemName = "머리핀", requiredPoint = 3, itemSprite = hairSprite, itemButton = btnHair });
 
-        //����
-        itemInfoList.Add(new ItemInfo { itemName = "ȭ��", requiredPoint = 3, itemSprite = plantSprite });
-        itemInfoList.Add(new ItemInfo { itemName = "������", requiredPoint = 3, itemSprite = fishSprite });
-        itemInfoList.Add(new ItemInfo { itemName = "å��", requiredPoint = 5, itemSprite = bookSprite });
-        itemInfoList.Add(new ItemInfo { itemName = "�ð�", requiredPoint = 2, itemSprite = clockSprite });
-        itemInfoList.Add(new ItemInfo { itemName = "����", requiredPoint = 3, itemSprite = pictureSprite });
-        itemInfoList.Add(new ItemInfo { itemName = "ĥ��", requiredPoint = 5, itemSprite = boardSprite });
+    //가구
+    itemInfoList.Add(new ItemInfo { itemName = "화분", requiredPoint = 3, itemSprite = plantSprite, itemButton = btnPlant });
+    itemInfoList.Add(new ItemInfo { itemName = "어항", requiredPoint = 3, itemSprite = fishSprite, itemButton = btnFish });
+    itemInfoList.Add(new ItemInfo { itemName = "책상", requiredPoint = 5, itemSprite = bookSprite, itemButton = btnBook });
+    itemInfoList.Add(new ItemInfo { itemName = "시계", requiredPoint = 2, itemSprite = clockSprite, itemButton = btnClock });
+    itemInfoList.Add(new ItemInfo { itemName = "그림", requiredPoint = 3, itemSprite = pictureSprite, itemButton = btnPicture });
+    itemInfoList.Add(new ItemInfo { itemName = "게시판", requiredPoint = 5, itemSprite = boardSprite, itemButton = btnBoard });
 
         // ���� �������� totalPointText�� ������Ʈ�մϴ�.
         UpdateText();
@@ -126,28 +126,41 @@ public class BuyItem : MonoBehaviour
         itemBox.SetActive(false);
     }
 
+    public Sprite purchasedSprite; // 구매 완료 스프라이트를 여기서 할당
+
     void Buy(ItemInfo itemInfo)
     {
         int remainingPoint = GameManager.Instance.sticker - itemInfo.requiredPoint;
 
         if (remainingPoint >= 0)
         {
-            print("����");
             totalPoint = remainingPoint;
             UpdateText();
 
-            // ��ƼĿ ����
+            // 스티커 차감
             GameManager.Instance.sticker -= itemInfo.requiredPoint;
             UpdateTotalPointText(GameManager.Instance.sticker);
 
             clickedItems.Add(itemInfo);
             UpdateItemImages();
+
+            // 구매된 버튼 이미지 변경 및 상호작용 비활성화
+            itemInfo.itemButton.image.sprite = purchasedSprite;
+            itemInfo.itemButton.interactable = false;
+
+            // 자식 요소 비활성화
+            foreach (Transform child in itemInfo.itemButton.transform)
+            {
+                child.gameObject.SetActive(false);
+            }
         }
         else
         {
             StartCoroutine(ShowWarningMessage());
         }
     }
+
+
 
     void UpdateTotalPointText(int totalPoint)
     {
