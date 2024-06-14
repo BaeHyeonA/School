@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        tmp = GameObject.FindWithTag("sticker").GetComponent<TMP_Text>();
     }
 
     void Update()
