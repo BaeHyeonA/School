@@ -14,21 +14,26 @@ public class Day1_Situation : MonoBehaviour
     public Button Ans4;
     public Button Btn_Close;
 
+    public AudioSource trueAud;
+    public AudioSource falseAud;
+
     void Start()
     {
         DeactivateAllAnswers();
 
-        Ans1.onClick.AddListener(() => ActivateAnswer(Reasion_1));
-        Ans2.onClick.AddListener(() => ActivateAnswer(Reasion_2));
-        Ans3.onClick.AddListener(() => ActivateAnswer(Reasion_3));
-        Ans4.onClick.AddListener(() => ActivateAnswer(Reasion_4));
+        Ans1.onClick.AddListener(() => ActivateAnswer(Reasion_1, false));
+        Ans2.onClick.AddListener(() => ActivateAnswer(Reasion_2, true));
+        Ans3.onClick.AddListener(() => ActivateAnswer(Reasion_3, false));
+        Ans4.onClick.AddListener(() => ActivateAnswer(Reasion_4, false));
         Btn_Close.onClick.AddListener(DeactivateAllAnswers);
     }
 
-    void ActivateAnswer(GameObject answer)
+    void ActivateAnswer(GameObject answer, bool check)
     {
         DeactivateAllAnswers();
         answer.SetActive(true);
+        AudioSource audio = check ? trueAud : falseAud;
+        audio.Play();
         Btn_Close.gameObject.SetActive(true);
     }
 

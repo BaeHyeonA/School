@@ -7949,6 +7949,7 @@ MonoBehaviour:
   quest: {fileID: 862171684}
   quiz: {fileID: 247915345}
   store: {fileID: 176255140}
+  aud: {fileID: 1575149729}
 --- !u!114 &588557867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14719,6 +14720,7 @@ MonoBehaviour:
   quest: {fileID: 862171684}
   quiz: {fileID: 247915345}
   store: {fileID: 176255140}
+  aud: {fileID: 1575149729}
 --- !u!114 &1060818934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16248,6 +16250,7 @@ MonoBehaviour:
   quest: {fileID: 862171684}
   quiz: {fileID: 247915345}
   store: {fileID: 176255140}
+  aud: {fileID: 1575149729}
 --- !u!114 &1138018870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16687,6 +16690,7 @@ MonoBehaviour:
   quest: {fileID: 862171684}
   quiz: {fileID: 247915345}
   store: {fileID: 176255140}
+  aud: {fileID: 1575149729}
 --- !u!114 &1161244969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16990,6 +16994,7 @@ MonoBehaviour:
   quest: {fileID: 862171684}
   quiz: {fileID: 247915345}
   store: {fileID: 176255140}
+  aud: {fileID: 1575149729}
 --- !u!114 &1165217677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17645,6 +17650,7 @@ MonoBehaviour:
   quest: {fileID: 862171684}
   quiz: {fileID: 247915345}
   store: {fileID: 176255140}
+  aud: {fileID: 1575149729}
 --- !u!114 &1253617900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22108,7 +22114,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 99ca44d48d9cf4f4f8d7d58c744ff648, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
