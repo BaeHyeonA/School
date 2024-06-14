@@ -154,7 +154,8 @@ PlayerSettings:
   resetResolutionOnWindowResize: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Standalone: com.DefaultCompany.School
   buildNumber:
     Standalone: 0
     iPhone: 0
@@ -706,7 +707,13 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Build: 0
+    Collab: 0
+    Game Performance: 0
+    Purchasing: 0
+    UDP: 0
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -721,11 +728,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: e5efdc6c-2dae-4de8-8fe1-9f249837a391
+  cloudProjectId: 33c1a0f1-0a89-4efe-841c-3f49eb0ed85d
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: School
-  organizationId: gusdk3312
+  organizationId: jieunku0424
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 

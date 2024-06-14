@@ -21,6 +21,7 @@ public class EndingMsg : MonoBehaviour
     public TutorialManager tm;
     public int textNum;
 
+    public AudioSource aud;
 
     void Start()
     {
@@ -41,6 +42,7 @@ public class EndingMsg : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            aud.Play();
             if (isEffect)
             {
                 CancelInvoke();
