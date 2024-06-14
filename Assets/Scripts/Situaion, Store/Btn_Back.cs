@@ -15,6 +15,8 @@ public class Btn_Back : MonoBehaviour
     // TextMeshPro ������Ʈ ����
     public TextMeshProUGUI totalPointText;
 
+    public GameManager gm;
+
 
     // Start is called before the first frame update
     void Start()
@@ -33,8 +35,8 @@ public class Btn_Back : MonoBehaviour
         Day2_Unlock.SetActive(true);
 
         // GameManager�� sticker�� ������Ű�� ������Ʈ�� ���� �ؽ�Ʈ�� ǥ��
-        GameManager.Instance.stickerUp();
-        UpdateTotalPointText(GameManager.Instance.sticker);
+        gm.GetComponent<GameManager>().stickerUp();
+        UpdateTotalPointText(gm.GetComponent<GameManager>().sticker);
     }
 
     void OnDay2BackClicked()
@@ -43,8 +45,8 @@ public class Btn_Back : MonoBehaviour
         Day2.SetActive(false);
 
         // GameManager�� sticker�� ������Ű�� ������Ʈ�� ���� �ؽ�Ʈ�� ǥ��
-        GameManager.Instance.stickerUp();
-        UpdateTotalPointText(GameManager.Instance.sticker);
+        gm.GetComponent<GameManager>().stickerUp();
+        UpdateTotalPointText(gm.GetComponent<GameManager>().sticker);
     }
 
     // totalPointText ������Ʈ �޼���
