@@ -30,4 +30,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Ending.unity
     guid: c921e317e86f95043854e88a68ef84bd
   m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 32fc0f564b220484e896deab7f21ba9c, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: e811738ce79ccf943976a353d183c09b, type: 2}
