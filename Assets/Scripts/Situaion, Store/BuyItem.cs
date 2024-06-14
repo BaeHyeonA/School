@@ -10,9 +10,6 @@ public class BuyItem : MonoBehaviour
     public Button Btn_Item;
     public Button Btn_Close;
 
-    // TextMeshPro ������Ʈ ����
-    public TextMeshProUGUI totalPointText;
-
     // ����Ʈ ����
     public int totalPoint;
 
@@ -49,6 +46,8 @@ public class BuyItem : MonoBehaviour
 
     // Warning ������Ʈ ����
     public GameObject warningObject;
+
+    public GameManager gm;
 
     // ������ ���� (������ �̸�, �ʿ� ����Ʈ)
     public struct ItemInfo
@@ -130,7 +129,7 @@ public class BuyItem : MonoBehaviour
 
     void Buy(ItemInfo itemInfo)
     {
-        int remainingPoint = GameManager.Instance.sticker - itemInfo.requiredPoint;
+        int remainingPoint = gm.GetComponent<GameManager>().sticker - itemInfo.requiredPoint;
 
         if (remainingPoint >= 0)
         {
@@ -138,8 +137,8 @@ public class BuyItem : MonoBehaviour
             UpdateText();
 
             // 스티커 차감
-            GameManager.Instance.sticker -= itemInfo.requiredPoint;
-            UpdateTotalPointText(GameManager.Instance.sticker);
+            gm.GetComponent<GameManager>().sticker -= itemInfo.requiredPoint;
+            UpdateTotalPointText(gm.GetComponent<GameManager>().sticker);
 
             clickedItems.Add(itemInfo);
             UpdateItemImages();
@@ -164,7 +163,7 @@ public class BuyItem : MonoBehaviour
 
     void UpdateTotalPointText(int totalPoint)
     {
-        totalPointText.text = totalPoint.ToString();
+        gm.GetComponent<GameManager>().tmp.text = totalPoint.ToString();
     }
 
 
@@ -194,7 +193,7 @@ public class BuyItem : MonoBehaviour
 
     void UpdateText()
     {
-        totalPointText.text = totalPoint.ToString();
+        gm.GetComponent<GameManager>().tmp.text = totalPoint.ToString();
     }
 
     // �ν����Ϳ��� �Ҵ��� Sprite �ʵ�

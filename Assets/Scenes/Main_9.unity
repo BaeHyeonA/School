@@ -1970,6 +1970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sticker: 16
+  tmp: {fileID: 1800021078}
 --- !u!4 &142682525
 Transform:
   m_ObjectHideFlags: 0
@@ -7868,6 +7869,7 @@ MonoBehaviour:
   Day2: {fileID: 228342287}
   Day2_Unlock: {fileID: 2107592011}
   totalPointText: {fileID: 1800021078}
+  gm: {fileID: 0}
 --- !u!1 &518528429
 GameObject:
   m_ObjectHideFlags: 0
@@ -17044,7 +17046,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Btn_Item: {fileID: 763045757}
   Btn_Close: {fileID: 394906044}
-  totalPointText: {fileID: 1800021078}
   totalPoint: 20
   btnHat: {fileID: 845558167}
   btnRibbon: {fileID: 1934404296}
@@ -17071,6 +17072,7 @@ MonoBehaviour:
   item11: {fileID: 1826334113}
   item12: {fileID: 1950133231}
   warningObject: {fileID: 57305733}
+  gm: {fileID: 142682524}
   itemBox: {fileID: 1903630829}
   purchasedSprite: {fileID: 21300000, guid: 06d7c922b9495bc4787bb3cccb3561a6, type: 3}
   hatSprite: {fileID: 21300000, guid: eaa101179ddcc33408308a19ba3d7b5b, type: 3}
