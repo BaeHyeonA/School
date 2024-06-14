@@ -27,6 +27,7 @@ public class TutorialMsg: MonoBehaviour
     public GameObject quiz;
     public GameObject store;
 
+    public AudioSource aud;
 
     void Start()
     {
@@ -46,16 +47,17 @@ public class TutorialMsg: MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
-    {
-        if (isEffect)
         {
-            CancelInvoke();
-            EffectEnd();
-            text.text = targetmsg;
+            aud.Play();
+            if (isEffect)
+            {
+                CancelInvoke();
+                EffectEnd();
+                text.text = targetmsg;
+            }
+            else
+                NextDialog();
         }
-        else
-            NextDialog();
-    }
     }
 
     public void NextDialog()
