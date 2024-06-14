@@ -6504,8 +6504,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   situationBox: {fileID: 846502965}
-  day1: {fileID: 0}
-  day2: {fileID: 0}
+  day1: {fileID: 1295803781}
+  day2: {fileID: 886337404}
   btnSituation: {fileID: 517788031}
   btnDay1: {fileID: 973838216}
   btnDay2: {fileID: 2107592013}
@@ -6522,10 +6522,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 210863f45df2fee45b54ab0f41182e39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Btn_Day1Back: {fileID: 0}
-  Btn_Day2Back: {fileID: 0}
-  Day1: {fileID: 0}
-  Day2: {fileID: 0}
+  Btn_Day1Back: {fileID: 118339837}
+  Btn_Day2Back: {fileID: 1900969886}
+  Day1: {fileID: 1295803781}
+  Day2: {fileID: 886337404}
   Day2_Unlock: {fileID: 2107592011}
   totalPointText: {fileID: 1800021078}
 --- !u!1 &518528429
