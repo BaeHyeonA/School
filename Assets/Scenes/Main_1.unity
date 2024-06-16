@@ -6529,7 +6529,7 @@ MonoBehaviour:
   Day2: {fileID: 886337404}
   Day2_Unlock: {fileID: 2107592011}
   totalPointText: {fileID: 1800021078}
-  gm: {fileID: 0}
+  gm: {fileID: 142682524}
 --- !u!1 &518528429
 GameObject:
   m_ObjectHideFlags: 0
