@@ -27,11 +27,23 @@ public class EndingFade : MonoBehaviour
             yield return new WaitForSeconds(0.015f);
             image.color = new Color(0, 0, 0, fadeCount);
         }
+
+        QuitGame();
         // GetComponent<TutorialMsg>().text.text = "";
         //if (GetComponent<TutorialMsg>().textNum == 5)
         //StartCoroutine(StartFadeInCoroutine());
     }
+
+    void QuitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
 }
+
 
    /* IEnumerator StartFadeInCoroutine()
     {
@@ -53,3 +65,4 @@ public class EndingFade : MonoBehaviour
         //tm.Change(GetComponent<TutorialMsg>().textNum);
     }
 }*/
+
